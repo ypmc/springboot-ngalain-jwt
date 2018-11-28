@@ -5533,7 +5533,7 @@ var ICONS = [
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\work\cib\spring-action-latest\ng-alain\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\work\cib\spring-action-latest\ng_alain\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
         List<Map> tags = List.of(
                 Map.of("key", 0, "label", "很有想法"),
                 Map.of("key", 1, "label", "专注撩妹"),
-                Map.of("key", 2, "label", "帅"),
+                Map.of("key", 2, "label", "你妹的帅"),
                 Map.of("key", 3, "label", "通吃"),
                 Map.of("key", 4, "label", "专职后端"),
                 Map.of("key", 5, "label", "海纳百川")

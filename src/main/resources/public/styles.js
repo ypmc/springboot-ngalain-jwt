@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\work\cib\spring-action-latest\ng-alain\src\styles.less */"./src/styles.less");
+module.exports = __webpack_require__(/*! D:\work\cib\spring-action-latest\ng_alain\src\styles.less */"./src/styles.less");
 
 
 /***/ })
