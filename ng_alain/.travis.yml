@@ -1,0 +1,46 @@
+sudo: required
+dist: trusty
+language: node_js
+
+node_js:
+  - '8.12.0'
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+      - google-chrome-beta
+
+git:
+  depth: 1
+
+jobs:
+  include:
+    - env: "MODE=build"
+    - env: "MODE=lint"
+    - env: "MODE=test-coverage"
+    - env: "DEPLOY_MODE=artifacts"
+      if: branch = master
+
+matrix:
+  allow_failures:
+    - env: "DEPLOY_MODE=artifacts"
+
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+install:
+  - chmod +x -R scripts
+  - yarn
+
+script:
+  - ./scripts/_ci/travis.sh
+
+cache:
+  yarn: true
+  directories:
+    - ./node_modules/

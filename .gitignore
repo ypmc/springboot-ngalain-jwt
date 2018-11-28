@@ -21,3 +21,67 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# target
+target/
+
+# .idea
+.idea/
+
+# .mvn
+.mvn/
+
+# target
+target/
+
+#ng-alain
+
+# compiled output
+ng_alain/dist
+ng_alain/tmp
+ng_alain/out-tsc
+
+# dependencies
+ng_alain/node_modules
+# /package-lock.json
+ng_alain/yarn-taobao.lock
+ng_alain/yarn.lock
+
+# IDEs and editors
+ng_alain/.idea
+ng_alain/.project
+ng_alain/.classpath
+ng_alain/.c9/
+ng_alain/*.launch
+ng_alain/.settings/
+ng_alain/*.sublime-workspace
+
+# IDE - VSCode
+ng_alain/.vscode/*
+ng_alain/!.vscode/settings.json
+ng_alain/!.vscode/tasks.json
+ng_alain/!.vscode/launch.json
+ng_alain/!.vscode/extensions.json
+
+# misc
+ng_alain/.sass-cache
+ng_alain/connect.lock
+ng_alain/coverage
+ng_alain/libpeerconnection.log
+ng_alain/npm-debug.log
+ng_alain/testem.log
+ng_alain/typings
+yarn-error.log
+ng_alain/_all.less
+
+# e2e
+ng_alain/e2e/*.js
+ng_alain/e2e/*.map
+
+# System Files
+ng_alain/.DS_Store
+ng_alain/Thumbs.db
+
+
+
+
