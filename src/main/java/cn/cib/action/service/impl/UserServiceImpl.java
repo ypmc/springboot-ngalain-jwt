@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
         }
         JsonWebTokenUtility jsonWebTokenUtility = new JsonWebTokenUtility();
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.HOUR, 1);
+        calendar.add(Calendar.MINUTE, 1);
         AuthTokenDetailsDTO authTokenDetailsDTO = AuthTokenDetailsDTO.builder()
                 .email(userName + "@test.com")
                 .userId(userName)
