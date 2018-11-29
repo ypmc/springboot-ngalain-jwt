@@ -15,6 +15,7 @@ export class ProBasicListComponent implements OnInit {
   loading = false;
   data: any[] = [];
   pageIndex = 1;
+  pageSize = 5;
 
   constructor(
     private http: _HttpClient,
@@ -30,7 +31,8 @@ export class ProBasicListComponent implements OnInit {
   getData() {
     console.log("nzPageIndex is " + this.pageIndex);
     this.loading = true;
-    this.http.get('/api/list', {count: 5}).subscribe((res: any) => {
+    this.http.get('/api/list?pageIndex=' + this.pageIndex + '&pageSize=' + this.pageSize, {count: 5}).subscribe((res: any) => {
+      console.log('basic list res is '+JSON.stringify(res));
       this.data = res;
       this.loading = false;
     });

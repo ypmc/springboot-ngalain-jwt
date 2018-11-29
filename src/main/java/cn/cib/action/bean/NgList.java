@@ -14,9 +14,10 @@ import java.util.Map;
 public class NgList {
     private String id;
     private String user;
+    private String owner;
     private String title;
     private String avatar;
-    private int cover;
+    private String cover;
     private Object status;
     private int percent;
     private String logo;

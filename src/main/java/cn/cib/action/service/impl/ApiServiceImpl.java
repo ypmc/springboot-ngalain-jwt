@@ -1,6 +1,7 @@
 package cn.cib.action.service.impl;
 
 import cn.cib.action.bean.Activity;
+import cn.cib.action.bean.NgList;
 import cn.cib.action.bean.Notice;
 import cn.cib.action.service.ApiService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ public class ApiServiceImpl implements ApiService {
     private List<String> titles;
     private List<String> user;
     private List<String> covers;
+    private List<String> statuses;
 
     @Override
     public List<Notice> getNotice() {
@@ -62,6 +64,48 @@ public class ApiServiceImpl implements ApiService {
                     .build());
         }
         return activities;
+    }
+
+    @Override
+    public List<NgList> getList(int pageIndex, int pageSize) {
+        List<NgList> ngLists = new ArrayList<>();
+        int start = (pageIndex - 1) * pageSize + 1;
+        int end = pageIndex * pageSize;
+        if (end > 36) {
+            end = 36;
+        }
+        for (int i = start; i <= end; i++) {
+            ngLists.add(
+                    NgList.builder()
+                            .id("FakeList-" + i)
+                            .owner(user.get(i % 10))
+                            .title("【" + i + "】" + titles.get(i % 8))
+                            .avatar(avatars.get(i % 8))
+                            .cover(covers.get(i % 4))
+                            .status(statuses.get(i % 3))
+                            .percent((int) Math.ceil(Math.random() * 50) + 50)
+                            .logo(avatars.get(i % 8))
+                            .href("http://github.com")
+                            .updatedAt(Calendar.getInstance().getTime().getTime())
+                            .createdAt(Calendar.getInstance().getTime().getTime())
+                            .subDescription("【" + i + "】" + desc.get(i % 5))
+                            .description("月落乌啼霜满天，江枫渔火对愁眠")
+                            .activeUser((int) Math.ceil(Math.random() * 100000) + 100000)
+                            .newUser((int) Math.ceil(Math.random() * 100000) + 100000)
+                            .star((int) Math.ceil(Math.random() * 100000) + 100000)
+                            .like((int) Math.ceil(Math.random() * 100000) + 100000)
+                            .message((int) Math.ceil(Math.random() * 100000) + 100000)
+                            .content("段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。")
+                            .member(List.of(
+                                    Map.of("avatar", "https://gw.alipayobjects.com/zos/rmsportal/ZiESqWwCXBRQoaPONSJe.png", "name", "赵小小")
+                                    , Map.of("avatar", "https://gw.alipayobjects.com/zos/rmsportal/tBOxZPlITHqwlGjsJWaF.png", "name", "王昭君")
+                                    , Map.of("avatar", "https://gw.alipayobjects.com/zos/rmsportal/sBxjgqiuHMGRkIjqlQCd.png", "name", "赵飞燕")
+
+                            ))
+                            .build()
+            );
+        }
+        return ngLists;
     }
 
     @PostConstruct
@@ -116,5 +160,26 @@ public class ApiServiceImpl implements ApiService {
                 "https://gw.alipayobjects.com/zos/rmsportal/RLwlKSYGSXGHuWSojyvp.png",
                 "https://gw.alipayobjects.com/zos/rmsportal/gLaIAoVWTtLbBWZNYEMg.png"
         );
+        user = List.of(
+                "卡色",
+                "cipchk",
+                "付小小",
+                "曲丽丽",
+                "林东东",
+                "周星星",
+                "吴加好",
+                "朱偏右",
+                "鱼酱",
+                "乐哥",
+                "谭小仪",
+                "仲尼");
+        covers = List.of(
+                "https://gw.alipayobjects.com/zos/rmsportal/HrxcVbrKnCJOZvtzSqjN.png",
+                "https://gw.alipayobjects.com/zos/rmsportal/alaPpKWajEbIYEUvvVNf.png",
+                "https://gw.alipayobjects.com/zos/rmsportal/RLwlKSYGSXGHuWSojyvp.png",
+                "https://gw.alipayobjects.com/zos/rmsportal/gLaIAoVWTtLbBWZNYEMg.png"
+        );
+
+        statuses = List.of("active", "exception", "normal");
     }
 }
