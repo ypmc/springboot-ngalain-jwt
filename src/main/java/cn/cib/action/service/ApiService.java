@@ -11,5 +11,5 @@ public interface ApiService {
 
     List<Activity> getActivity();
 
-    List<NgList> getList(int pageIndex, int pageSize);
+    List<NgList> getList(Integer pageIndex, Integer pageSize);
 }

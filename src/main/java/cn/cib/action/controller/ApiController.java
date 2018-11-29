@@ -29,8 +29,8 @@ public class ApiController {
     }
 
     @GetMapping("list")
-    public List<NgList> getList(@RequestParam(value = "pageIndex", required = false) int pageIndex
-            , @RequestParam(value = "pageSize", required = false) int pageSize) {
+    public List<NgList> getList(@RequestParam(value = "pageIndex", required = false) Integer pageIndex
+            , @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         return apiService.getList(pageIndex, pageSize);
     }
 }

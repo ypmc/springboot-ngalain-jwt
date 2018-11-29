@@ -67,7 +67,13 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public List<NgList> getList(int pageIndex, int pageSize) {
+    public List<NgList> getList(Integer pageIndex, Integer pageSize) {
+        if (pageIndex == null) {
+            pageIndex = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 5;
+        }
         List<NgList> ngLists = new ArrayList<>();
         int start = (pageIndex - 1) * pageSize + 1;
         int end = pageIndex * pageSize;
