@@ -18,7 +18,7 @@ JSON Web Token(JWT)是一种基于RFC7519的开放标准，它定义了一种紧
 
 ### 构建与发布
 
-- 使用`ng build`[打包](https://ng-alain.com/docs/deploy/zh)Ng-Alain应用
+- 使用`ng build --prod`[打包](https://ng-alain.com/docs/deploy/zh)Ng-Alain应用
 
 
 - 之后，执行`mvn clean install`命令将dist包中的文件拷贝值`resources\public`

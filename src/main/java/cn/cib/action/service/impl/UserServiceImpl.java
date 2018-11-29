@@ -62,9 +62,11 @@ public class UserServiceImpl implements UserService {
                 .roleNames(List.of("admin"))
                 .privileges(List.of("admin"))
                 .build();
+        String token = jsonWebTokenUtility.createJsonWebToken(authTokenDetailsDTO);
+        log.info("token is {{}}", token);
         return LoginResultDTO.builder()
                 .msg("ok")
-                .user(Map.of("token", jsonWebTokenUtility.createJsonWebToken(authTokenDetailsDTO)
+                .user(Map.of("token", token
                         , "name", userName
                         , "email", userName + "@test.com"
                         , "id", UUID.randomUUID().toString()
